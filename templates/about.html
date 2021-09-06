@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+<body>
+  {% block body %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='about-style.css') }}">
+  
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-1">About</h1>
+          <p>This application uses <a href="https://aws.amazon.com/rekognition/" target="_blank">Amazon Rekognition</a> to perform some fun image recognition operations.</p>
+          <div class="itemizedlist">  
+            <ul class="itemizedlist" type="disc">
+              <li class="listitem">
+                <p>Celebrity Match: upload a selfie to find out the top celebrities your face looks similar to!</p>
+              </li>
+              <li class="listitem">
+                <p>Face Comparison: upload selfies of you and a friend to find out how similar your faces are!</p>
+              </li>
+              <li class="listitem">
+                <p>Object Detection: upload an image to find out the top objects Amazon Rekognition can recognize!</p>
+              </li>
+            </ul>
+          </div>
+          <br>
+          <h4 class="mt-1">Amazon Rekognition Image Limitations</h4>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+               <li class="listitem">
+                  <p>Maximum image size is limited to 15 MB. </p>
+               </li>
+               <li class="listitem">
+                  <p>The minimum image size is 80 pixels for both height and width.</p>
+               </li>
+               <li class="listitem">
+                  <p>To be detected, a face must be no smaller that 40x40 pixels in an image with 1920X1080
+                     pixels.
+                     Images with dimensions higher than 1920X1080 pixels will need a larger minimum face
+                     size proportionally. 
+                  </p>
+               </li>
+               <li class="listitem">
+                  <p>Amazon Rekognition supports the PNG and JPEG image formats.
+                  </p>
+               </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</body>

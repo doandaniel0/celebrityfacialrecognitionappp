@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+<body>
+  {% block body %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='detect-style.css') }}">
+  
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-1">Object Detection</h1>
+          <p class="lead">Upload any image!</p>
+          <form action="/detect" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+              <div class="col-4"></div>
+              <div class="col-4">
+                <div class="input-group">
+                    <label class="input-group-btn">
+                        <span class="btn btn-dark">
+                            Choose Image <input type="file" style="display: none;" name="user_file">
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" readonly>
+                </div>
+              </div>
+            </div>
+            <button type="submit" name="upload_button" class="btn btn-dark">Detect!</button>
+          </form>
+          
+          <br>
+          
+          <!-- Error flashing -->
+          {% if error %}
+            <p class=error><strong>Error:</strong> {{ error }}
+          {% endif %}
+          
+          <div class="form-group row">
+            <div class="col-3">
+              {% with messages = get_flashed_messages(category_filter=["user_image"]) %}
+              	{% if messages %}
+              		<p class=flashes>
+                  {% for message in messages %}
+                    {{ message }}
+                  {% endfor %}
+              	{% endif %}
+              {% endwith %}
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+              <!-- Message flashing -->
+              {% with messages = get_flashed_messages(category_filter=["status"]) %}
+              	{% if messages %}
+              		<ul class=flashes>
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+              	{% endif %}
+              {% endwith %}
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+              {% with messages = get_flashed_messages(category_filter=["a_image"]) %}
+              	{% if messages %}
+              		<p class=flashes>
+                  {% for message in messages %}
+                    {{ message }}
+                  {% endfor %}
+              	{% endif %}
+              {% endwith %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</body>

@@ -1,0 +1,15 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-image: linear-gradient(to bottom right, #bdc3c7, #2c3e50);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+ul {
+  list-style: none;
+  list-style-position: inside;
+  padding-left: 0;
+}

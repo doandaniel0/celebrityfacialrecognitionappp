@@ -1,5 +1,5 @@
-# RekogU
-http://rekogu-dev.us-west-2.elasticbeanstalk.com/\
+RekogU
+http://rekogu-dev.us-west-2.elasticbeanstalk.com/
 celebrityfacialrecognitionapp\
 \
 application.py - main application using flask to create webpage and interaction.\
